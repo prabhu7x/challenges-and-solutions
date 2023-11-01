@@ -1,0 +1,512 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Kumbh+Sans:wght@400;700&display=swap");
+.button-basic {
+  background-color: transparent;
+  border: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  color: hsl(0, 0%, 0%);
+  font: 400 1rem "Kumbh Sans";
+}
+body button {
+  cursor: pointer;
+}
+body .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 8%, 0.5);
+  height: 100%;
+  width: 100%;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9;
+}
+body.open-nav header .menu .menu-icon {
+  position: fixed;
+}
+body.open-nav ul {
+  transform: initial;
+}
+body.open-nav .overlay {
+  display: initial;
+  opacity: 1;
+}
+body.show_cart .cart {
+  display: initial;
+  z-index: 4;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+header .menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+header .menu .menu-icon {
+  z-index: 11;
+  position: relative;
+}
+header .menu .logo {
+  margin-left: 2rem;
+}
+header nav ul {
+  list-style-type: none;
+  transform: translateX(-100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 40vh;
+  height: 100%;
+  padding: 5rem 1rem 0 1rem;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+header nav ul li {
+  font: 700 1.5rem "Kumbh Sans";
+  margin: 1.5rem 0;
+  color: hsl(0, 0%, 0%);
+}
+header .profile {
+  display: flex;
+  align-items: center;
+}
+header .profile .avatar img {
+  width: 40px;
+  margin-left: 1.3rem;
+  border-radius: 50%;
+  border: solid 2px transparent;
+}
+header .profile .avatar img:hover {
+  border: solid 2px hsl(26, 100%, 55%);
+}
+header .profile button {
+  border: none;
+  background: none;
+  padding: 0;
+  position: relative;
+}
+header .profile button span {
+  position: absolute;
+  padding: 1px 8px;
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 1rem;
+  top: -9px;
+  right: -7px;
+  color: white;
+  font: 800 10px "Kumbh Sans";
+}
+
+hr {
+  display: none;
+}
+
+.cart {
+  display: none;
+  position: absolute;
+  width: 100%;
+  min-height: 20%;
+  padding: 1rem;
+  background-color: white;
+}
+.cart h1 {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+.cart .cart_insider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 170px;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 100%;
+  background-color: white;
+  height: 100%;
+  box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
+}
+.cart .cart_insider .empty-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: hsl(219, 9%, 45%);
+}
+.cart .cart_insider button {
+  background-color: transparent;
+  border: none;
+}
+.cart .cart_insider .cart-items-container {
+  width: 100%;
+}
+.cart .cart_insider .cart-items-container .checkout {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background-color: hsl(26, 100%, 55%);
+  padding: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+}
+.cart .cart_insider .cart-items-container .cart_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart .cart_insider .cart-items-container .cart_items p {
+  color: hsl(219, 9%, 45%);
+  font-family: "Kumbh Sans";
+  line-height: 1.5rem;
+  font-style: bold;
+}
+.cart .cart_insider .cart-items-container .cart_items .product {
+  width: 50px;
+  border-radius: 5px;
+}
+.cart .cart_insider .cart-items-container span:last-child {
+  font-weight: 800;
+}
+.cart .line {
+  position: absolute;
+  width: 92%;
+  height: 2px;
+  top: 70px;
+  background-color: gray;
+}
+
+main article .preview {
+  position: relative;
+}
+main article .preview img {
+  width: 100%;
+}
+main article .preview .navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+main article .preview .navigation button {
+  border: none;
+  background-color: white;
+  padding: 1rem 1.22rem;
+  border-radius: 50%;
+}
+main article .preview .navigation button:disabled {
+  background-color: hsla(0, 0%, 8%, 0.5);
+}
+main article .preview_container {
+  display: none;
+}
+main article .preview_container button {
+  background-color: none;
+  border: none;
+}
+main article .preview-only {
+  display: none;
+}
+main section {
+  padding: 1.5rem;
+}
+main section h1 {
+  font: 700 1rem "Kumbh Sans";
+  margin: 1rem 0;
+}
+main section h1 span {
+  color: hsl(26, 100%, 55%);
+  font-size: 1.5rem;
+  padding: 0.1rem 0.8rem;
+  background-color: hsl(25, 100%, 94%);
+  border-radius: 5px;
+  margin-left: 1rem;
+}
+main section .offer {
+  font: 700 2rem "Kumbh Sans";
+}
+main section h1:first-child {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+main section h2:first-child {
+  color: hsl(26, 100%, 55%);
+  margin: 1rem 0;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+main section h2:last-child {
+  color: hsl(220, 14%, 75%);
+  text-decoration: line-through;
+}
+main section .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main section p {
+  font-size: 1.4rem;
+  color: hsl(220, 14%, 75%);
+  font-weight: 500;
+}
+main section .add_to_cart div {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: hsl(223, 64%, 98%);
+}
+main section .add_to_cart .cart_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: hsl(26, 100%, 55%);
+  padding: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+}
+main section .add_to_cart .cart_btn img {
+  margin-right: 1rem;
+  color: white;
+}
+main section .add_to_cart button {
+  padding: 1rem;
+  font: 700 2rem "Kumbh Sans";
+  background-color: transparent;
+  color: hsl(26, 100%, 55%);
+  border: none;
+  border-radius: 10px;
+}
+main section .add_to_cart span {
+  font: 700 1.5rem "Kumbh Sans";
+}
+
+footer {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  header {
+    justify-content: initial;
+  }
+  header .menu .menu-icon {
+    display: none;
+  }
+  header .menu .logo {
+    margin-left: 0rem;
+  }
+  header nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  header nav ul {
+    padding: initial;
+    transform: initial;
+    position: initial;
+    width: auto;
+    height: auto;
+    display: flex;
+  }
+  header nav ul li {
+    margin: 1rem 2rem;
+    font-size: 1rem;
+    font-style: regular;
+    color: hsl(219, 9%, 45%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  header nav ul li:hover {
+    color: hsl(0, 0%, 0%);
+    text-decoration: underline;
+    text-decoration-thickness: 8px;
+    text-underline-offset: 1.8rem;
+    text-decoration-color: hsl(26, 100%, 55%);
+  }
+  hr {
+    display: block;
+    margin: 0 1rem;
+  }
+  main {
+    padding: 5rem 9rem;
+    gap: 6rem;
+    display: flex;
+  }
+  main article {
+    align-self: center;
+  }
+  main article img {
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+  main article .preview_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  main article .preview_container button {
+    background: none;
+    border-radius: 10px;
+    padding: 0;
+    height: fit-content;
+    border: solid 3px transparent;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+  main article .preview_container button:hover {
+    border: solid 3px hsl(26, 100%, 55%);
+  }
+  main article .preview_container button img {
+    width: 85px;
+    margin: 0;
+    transform: scale(1.1);
+  }
+  main article .preview_container button img:hover {
+    opacity: 0.5;
+  }
+  main article .preview_container .preview_active {
+    border: solid 3px hsl(26, 100%, 55%);
+  }
+  main article .preview_container .preview_active img {
+    opacity: 0.5;
+  }
+  main article .preview .navigation {
+    display: none;
+  }
+  main article .preview-only {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 8%, 0.8);
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    opacity: 0;
+  }
+  main article .preview-only .preview-only-inner {
+    position: relative;
+  }
+  main article .preview-only .preview-only-inner .navigation {
+    position: absolute;
+    top: calc(50% - 2rem);
+    z-index: 15;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  main article .preview-only .preview-only-inner .navigation button {
+    border-radius: 50%;
+    padding: 1rem 1.3rem;
+    border: none;
+  }
+  main article .preview-only .preview-only-inner .navigation button img {
+    width: 15px;
+    margin: 0;
+  }
+  main article .preview-only .preview-only-inner .overlay-content {
+    padding: 2rem;
+  }
+  main article .preview-only .preview-only-inner .overlay-content .full-main-preview {
+    position: relative;
+    padding-top: 3rem;
+  }
+  main article .preview-only .preview-only-inner .overlay-content .full-main-preview .main {
+    width: 500px;
+  }
+  main article .preview-only .preview-only-inner .overlay-content .full-main-preview .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+  }
+  main article .preview-only .preview-only-inner .overlay-content .full-main-preview .close img {
+    width: 25px;
+  }
+  main article .preview-only .preview-only-inner .overlay-content .full-preview-container {
+    justify-content: space-evenly;
+  }
+  main section {
+    padding: 3rem 2rem;
+  }
+  main section p {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  main section .offer {
+    font-size: 2.5rem;
+  }
+  main section .price {
+    display: initial;
+  }
+  main section .price h1 {
+    font-size: 1.8rem;
+    margin-top: 1.7rem;
+  }
+  main section .price h2 {
+    font-size: 1.1rem;
+  }
+  main section .add_to_cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1rem;
+    margin-top: 2rem;
+  }
+  main section .add_to_cart button {
+    padding: 0.8rem 0.9rem;
+    font-size: 1.5rem;
+  }
+  main section .add_to_cart div {
+    padding: 0;
+    border-radius: 10px;
+    flex-grow: 0;
+    width: 65%;
+  }
+  main section .add_to_cart .cart_btn {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .cart {
+    width: 400px;
+    right: 0;
+  }
+  .cart .cart_insider {
+    border-radius: 10px;
+  }
+  body.open-preview .preview-only {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
